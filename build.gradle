@@ -1,0 +1,94 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath "com.google.gradle:osdetector-gradle-plugin:1.4.0"
+    }
+}
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "maven"
+    apply plugin: "idea"
+    apply plugin: "com.google.osdetector"
+
+    group = "io.grpc"
+    version = "1.0-SNAPSHOT"
+
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    [compileJava, compileTestJava].each() { compileTask ->
+        compileTask.options.compilerArgs += ["-Xlint:all", "-Xlint:-options"]
+        compileTask.options.encoding = "UTF-8"
+        if (rootProject.hasProperty("failOnWarnings") && rootProject.failOnWarnings.toBoolean()) {
+            compileTask.options.compilerArgs += ["-Werror"]
+        }
+    }
+
+    compileTestJava {
+        options.compilerArgs += ["-Xlint:-serial"]
+    }
+
+    jar.manifest {
+        attributes(
+                "Implementation-Title": name,
+                "Implementation-Version": version,
+                "Built-By": System.getProperty("user.name"),
+                "Built-JDK": System.getProperty("java.version"),
+                "Source-Compatibility": sourceCompatibility,
+                "Target-Compatibility": targetCompatibility
+        )
+    }
+
+    javadoc.options {
+        encoding = "UTF-8"
+        links "https://docs.oracle.com/javase/8/docs/api/"
+    }
+
+    ext {
+        def exeSuffix = osdetector.os == "windows" ? ".exe" : ""
+        protocPluginBaseName = "protoc-gen-grpc-java"
+        javaPluginPath = "$rootDir/compiler/build/exe/java_plugin/${protocPluginBaseName}${exeSuffix}"
+
+        protobufVersion = "3.1.0"
+        grpcVersion = "1.0.3"
+
+        libraries = [
+                grpc_core: "io.grpc:grpc-core:${grpcVersion}",
+                grpc_netty: "io.grpc:grpc-netty:${grpcVersion}",
+                grpc_protobuf: "io.grpc:grpc-protobuf:${grpcVersion}",
+                grpc_protobuf_generator: "io.grpc:protoc-gen-grpc-java:${grpcVersion}",
+                grpc_stub: "io.grpc:grpc-stub:${grpcVersion}",
+                protobuf: "com.google.protobuf:protobuf-java:${protobufVersion}",
+                protobuf_plugin: "com.google.protobuf:protobuf-gradle-plugin:0.8.0"
+        ]
+
+        configureProtoCompilation = {
+            String generatedSourcePath = "${projectDir}/src/generated"
+            project.sourceSets {
+                ["main", "test"].each { taskType ->
+                    "${taskType}" {
+                        java {
+                            srcDir "${generatedSourcePath}/${taskType}/java"
+                            srcDir "${generatedSourcePath}/${taskType}/javanano"
+                            srcDir "${generatedSourcePath}/${taskType}/grpc"
+                        }
+                    }
+                }
+            }
+
+            [compileJava, compileTestJava].each { compileTask ->
+                compileTask.options.compilerArgs += ["-Xlint:-cast"]
+            }
+        }
+    }
+}
+

@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath libraries.protobuf_plugin
+    }
+}
+
+description = "My Unicorn Service"
+
+dependencies {
+    compile libraries.grpc_core
+    compile libraries.grpc_netty
+    compile libraries.grpc_protobuf
+    compile libraries.grpc_stub
+}
+
+configureProtoCompilation()
+
+// Let intellij projects refer to generated code
+idea {
+    module {
+        sourceDirs += file("${projectDir}/src/generated/main/java");
+        sourceDirs += file("${projectDir}/src/generated/main/grpc");
+    }
+}

@@ -4,10 +4,10 @@ import com.google.common.base.Preconditions;
 
 import com.google.protobuf.Empty;
 import io.grpc.Status;
-import io.grpc.status.proto.SimpleGrpc.SimpleImplBase;
-import io.grpc.status.proto.SimpleService.EchoRequest;
-import io.grpc.status.proto.SimpleService.EchoResponse;
-import io.grpc.status.proto.SimpleService.FailWithProbabilityOrSucceedEchoRequest;
+import my.service.proto.SimpleGrpc.SimpleImplBase;
+import my.service.proto.SimpleService.EchoRequest;
+import my.service.proto.SimpleService.EchoResponse;
+import my.service.proto.SimpleService.FailWithProbabilityOrSucceedEchoRequest;
 import io.grpc.stub.StreamObserver;
 
 import java.text.DateFormat;

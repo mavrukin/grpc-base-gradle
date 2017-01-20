@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-option java_package = "io.grpc.status.proto";
+option java_package = "my.service.proto";
 
 package grpc;
 

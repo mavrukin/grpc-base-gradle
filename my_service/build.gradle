@@ -1,3 +1,5 @@
+apply plugin: "application"
+
 buildscript {
     repositories {
         mavenCentral()
@@ -28,3 +30,5 @@ idea {
         sourceDirs += file("${projectDir}/src/generated/main/grpc");
     }
 }
+
+mainClassName = "my.service.example.ServerLauncher"

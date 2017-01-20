@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option java_package = "io.grpc.status.proto";
+
+package grpc;
+
+message EchoRequest {
+    string echo = 1;
+    int32 repeat_echo = 2;
+}
+
+message EchoResponse {
+    string echo_response = 1;
+}
+
+message FailWithProbabilityOrSucceedEchoRequest {
+    EchoRequest echo_request = 1;
+    int32 fail_probability = 2; // Range in [0, 100]
+}
+
+service Simple {
+    rpc Noop(google.protobuf.Empty) returns (google.protobuf.Empty) {}
+    rpc Echo(grpc.EchoRequest) returns (grpc.EchoResponse) {}
+    rpc FailPlease(grpc.FailWithProbabilityOrSucceedEchoRequest) returns
+    (grpc.EchoResponse) {}
+}
+
+message BlockForMillisRequest {
+    int32 millis = 1; // block for this millis before returning
+}
+
+message DoNEmptyRequestsRequest {
+    int32 num_empty_request = 1;
+    int32 p_level = 2; // how many requests to do in parallel
+}
+
+message DoNEmptyRequestsResponse {
+    int64 total_process_time = 1;
+    int32 successful_requests = 2;
+    int32 failed_requests = 3;
+    int64 longest_request = 4;
+}
+
+message DoNEchoRequestsAndFailSomeRequest {
+    DoNEmptyRequestsRequest empty_requests = 1;
+    BlockForMillisRequest block_for_millis = 2;
+    FailWithProbabilityOrSucceedEchoRequest echo_with_p_failure = 3;
+}
+
+service LessSimple {
+    rpc BlockForMillis(grpc.BlockForMillisRequest) returns (google.protobuf.Empty) {}
+    rpc DoNEmptyRequests(grpc.DoNEmptyRequestsRequest) returns
+    (grpc.DoNEmptyRequestsResponse) {}
+    rpc DoNRequestsAndFailSome(grpc.DoNEchoRequestsAndFailSomeRequest) returns
+    (grpc.DoNEmptyRequestsResponse) {}
+}

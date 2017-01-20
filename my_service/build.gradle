@@ -14,6 +14,8 @@ dependencies {
     compile libraries.grpc_core
     compile libraries.grpc_netty
     compile libraries.grpc_protobuf
+    compile libraries.grpc_protobuf_generator
+    compile libraries.grpc_protoc
     compile libraries.grpc_stub
 }
 

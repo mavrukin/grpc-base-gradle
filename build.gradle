@@ -54,10 +54,7 @@ subprojects {
     }
 
     ext {
-        def exeSuffix = osdetector.os == "windows" ? ".exe" : ""
         protocPluginBaseName = "protoc-gen-grpc-java"
-        javaPluginPath = "$rootDir/compiler/build/exe/java_plugin/${protocPluginBaseName}${exeSuffix}"
-
         protobufVersion = "3.1.0"
         grpcVersion = "1.0.3"
 
@@ -65,14 +62,55 @@ subprojects {
                 grpc_core: "io.grpc:grpc-core:${grpcVersion}",
                 grpc_netty: "io.grpc:grpc-netty:${grpcVersion}",
                 grpc_protobuf: "io.grpc:grpc-protobuf:${grpcVersion}",
-                grpc_protobuf_generator: "io.grpc:protoc-gen-grpc-java:${grpcVersion}",
+                grpc_protobuf_generator: "io.grpc:${protocPluginBaseName}:${grpcVersion}:${osdetector.classifier}@exe",
+                grpc_protoc: "io.grpc:${protocPluginBaseName}:${grpcVersion}",
                 grpc_stub: "io.grpc:grpc-stub:${grpcVersion}",
                 protobuf: "com.google.protobuf:protobuf-java:${protobufVersion}",
-                protobuf_plugin: "com.google.protobuf:protobuf-gradle-plugin:0.8.0"
+                protobuf_plugin: "com.google.protobuf:protobuf-gradle-plugin:0.8.0",
         ]
 
         configureProtoCompilation = {
+            project.configurations.compile.resolve().each { File f ->
+                if (f.name.endsWith("${protocPluginBaseName}-${grpcVersion}-${osdetector.classifier}.exe")) {
+                    f.setExecutable(true)
+                    javaPluginPath = f.absolutePath
+                }
+            }
+
             String generatedSourcePath = "${projectDir}/src/generated"
+            project.apply plugin: "com.google.protobuf"
+            project.protobuf {
+                protoc {
+                    if (project.hasProperty("protoc")) {
+                        path = project.protoc
+                    } else {
+                        def artifact = "com.google.protobuf:protoc:${protobufVersion}"
+                    }
+                }
+                plugins {
+                    grpc {
+                        path = javaPluginPath
+                    }
+                }
+                generateProtoTasks {
+                    all().each { task ->
+                        task.dependsOn "deleteGeneratedSource" + task.sourceSet.name
+                        task.inputs.file javaPluginPath
+                        task.inputs.file "${rootProject.projectDir}/build.gradle"
+                        task.plugins {
+                            grpc {
+                                option "enable_deprecated=false"
+                            }
+                        }
+                    }
+                }
+                generatedFilesBaseDir = generatedSourcePath
+            }
+            sourceSets.each { sourceSet ->
+                task "deleteGeneratedSource${sourceSet.name}" << {
+                    project.delete project.fileTree(dir: generatedSourcePath + "/" + sourceSet.name)
+                }
+            }
             project.sourceSets {
                 ["main", "test"].each { taskType ->
                     "${taskType}" {
@@ -91,4 +129,5 @@ subprojects {
         }
     }
 }
+
 

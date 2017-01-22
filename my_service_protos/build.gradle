@@ -1,5 +1,3 @@
-apply plugin: "application"
-
 buildscript {
     repositories {
         mavenCentral()
@@ -10,11 +8,12 @@ buildscript {
     }
 }
 
-description = "My Unicorn Service"
+description = "My Unicorn Service Protos"
 
 dependencies {
-    compile libraries.grpc_netty
-    compile project(":my_service_protos")
+    compile libraries.grpc_protobuf
+    compile libraries.grpc_protobuf_generator
+    compile libraries.grpc_stub
 }
 
 configureProtoCompilation()
@@ -27,4 +26,3 @@ idea {
     }
 }
 
-mainClassName = "my.service.example.ServerLauncher"

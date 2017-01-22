@@ -1,7 +1,10 @@
 rootProject.name = 'base-service'
+
 include ":my_service"
+include ":my_service_protos"
 
 project(":my_service").projectDir = "$rootDir/my_service" as File
+project(":my_service_protos").projectDir = "$rootDir/my_service_protos" as File
 
 if (settings.hasProperty("skipCodegen") && skipCodegen.toBoolean()) {
     println "*** Skipping the build of codegen and compilation of proto files because skipCodegen=true"

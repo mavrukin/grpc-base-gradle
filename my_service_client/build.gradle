@@ -1,0 +1,30 @@
+apply plugin: "application"
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    dependencies {
+        classpath libraries.protobuf_plugin
+    }
+}
+
+description = "My Unicorn Service Client"
+
+dependencies {
+    compile libraries.grpc_netty
+    compile project(":my_service_protos")
+}
+
+configureProtoCompilation()
+
+// Let intellij projects refer to generated code
+idea {
+    module {
+        sourceDirs += file("${projectDir}/src/generated/main/java");
+        sourceDirs += file("${projectDir}/src/generated/main/grpc");
+    }
+}
+
+mainClassName = "my.service.client.MyServiceClient"

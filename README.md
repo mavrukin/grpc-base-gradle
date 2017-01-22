@@ -18,7 +18,7 @@ For quick reference, if you were to fork this service over or clone it, you can 
 ```bash
   > gradle :my_service:run  # will run the server, listening on port 8123
   > gradle :my_service_client:run  # will run the client which will execute a bunch of requests against the server
-  > gralde :my_service:test  # will build and "test" the service, although there are no tests written at present
+  > gradle :my_service:test  # will build and "test" the service, although there are no tests written at present
 ```
 If you are interested in helping to improve this overall setup, maybe turn it into a plugin, please don't hesitate and sendover a pull request.
 

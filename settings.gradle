@@ -2,11 +2,12 @@ rootProject.name = 'base-service'
 
 include ":my_service"
 include ":my_service_client"
+include ":my_service_docker"
 include ":my_service_protos"
-
 
 project(":my_service").projectDir = "${rootDir}/my_service" as File
 project(":my_service_client").projectDir = "${rootDir}/my_service_client" as File
+project(":my_service_docker").projectDir = "${rootDir}/my_service_docker" as File
 project(":my_service_protos").projectDir = "${rootDir}/my_service_protos" as File
 
 if (settings.hasProperty("skipCodegen") && skipCodegen.toBoolean()) {

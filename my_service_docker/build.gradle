@@ -1,0 +1,31 @@
+apply plugin: "application"
+apply plugin: "docker"
+
+buildscript {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath "se.transmode.gradle:gradle-docker:1.2"
+    }
+}
+
+description = "My Unicorn Service - The Docker Container"
+
+dependencies {
+    compile project(":my_service")
+} 
+
+mainClassName = "my.service.example.ServerLauncher"
+
+distDocker {
+    exposePort 8123
+}
+
+docker {
+    baseImage = "openjdk:8"
+    maintainer = "Michael Avrukin"
+}
+

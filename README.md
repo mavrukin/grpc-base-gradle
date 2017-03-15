@@ -1,5 +1,5 @@
 # gRPC Gradle Setup
-This simple setup is intended to enable [java gRPC](https://github.com/grpc/grpc-java) users or those interested 
+This simple setup is intended to enable [Java gRPC](https://github.com/grpc/grpc-java) users or those interested 
 in starting up with gRPC to have a nice working environment.
  
 One of the challenges of getting started with gRPC is that at present

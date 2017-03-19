@@ -56,7 +56,7 @@ subprojects {
     ext {
         protocPluginBaseName = "protoc-gen-grpc-java"
         protobufVersion = "3.1.0"
-        grpcVersion = "1.0.3"
+        grpcVersion = "1.2.0"
 
         libraries = [
                 grpc_core: "io.grpc:grpc-core:${grpcVersion}",

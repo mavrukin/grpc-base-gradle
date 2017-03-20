@@ -56,7 +56,7 @@ subprojects {
     ext {
         protocPluginBaseName = "protoc-gen-grpc-java"
         protobufVersion = "3.1.0"
-        grpcVersion = "1.0.3"
+        grpcVersion = "1.2.0"
 
         libraries = [
                 grpc_core: "io.grpc:grpc-core:${grpcVersion}",
@@ -64,6 +64,7 @@ subprojects {
                 grpc_protobuf: "io.grpc:grpc-protobuf:${grpcVersion}",
                 grpc_protobuf_generator: "io.grpc:${protocPluginBaseName}:${grpcVersion}:${osdetector.classifier}@exe",
                 grpc_protoc: "io.grpc:${protocPluginBaseName}:${grpcVersion}",
+                grpc_services: "io.grpc:grpc-services:${grpcVersion}",
                 grpc_stub: "io.grpc:grpc-stub:${grpcVersion}",
                 protobuf: "com.google.protobuf:protobuf-java:${protobufVersion}",
                 protobuf_plugin: "com.google.protobuf:protobuf-gradle-plugin:0.8.0",

@@ -17,6 +17,7 @@ description = "My Unicorn Service"
 
 dependencies {
     compile libraries.grpc_netty
+    compile libraries.grpc_services
     compile project(":my_service_protos")
 }
 

@@ -41,3 +41,6 @@ bin
 
 # Generated proto directories
 **/src/generated
+
+# Bytecode python files
+.pyc

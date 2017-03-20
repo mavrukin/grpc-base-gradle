@@ -1,12 +1,15 @@
 apply plugin: "application"
+apply plugin: "docker"
 
 buildscript {
     repositories {
         mavenCentral()
         mavenLocal()
+	jcenter()
     }
     dependencies {
         classpath libraries.protobuf_plugin
+	classpath "se.transmode.gradle:gradle-docker:1.2"
     }
 }
 
@@ -28,3 +31,13 @@ idea {
 }
 
 mainClassName = "my.service.example.ServerLauncher"
+
+distDocker {
+    exposePort 8123
+}
+
+docker {
+  baseImage = "openjdk:8"
+  maintainer = "Michael Avrukin"
+}
+

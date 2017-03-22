@@ -25,17 +25,17 @@ class SimpleStub(object):
       channel: A grpc.Channel.
     """
     self.Noop = channel.unary_unary(
-        '/grpc.Simple/Noop',
+        '/zpages.endpoints.Simple/Noop',
         request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
         response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
         )
     self.Echo = channel.unary_unary(
-        '/grpc.Simple/Echo',
+        '/zpages.endpoints.Simple/Echo',
         request_serializer=simple__service__pb2.EchoRequest.SerializeToString,
         response_deserializer=simple__service__pb2.EchoResponse.FromString,
         )
     self.FailPlease = channel.unary_unary(
-        '/grpc.Simple/FailPlease',
+        '/zpages.endpoints.Simple/FailPlease',
         request_serializer=simple__service__pb2.FailWithProbabilityOrSucceedEchoRequest.SerializeToString,
         response_deserializer=simple__service__pb2.EchoResponse.FromString,
         )
@@ -78,7 +78,7 @@ def add_SimpleServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'grpc.Simple', rpc_method_handlers)
+      'zpages.endpoints.Simple', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -91,17 +91,17 @@ class LessSimpleStub(object):
       channel: A grpc.Channel.
     """
     self.BlockForMillis = channel.unary_unary(
-        '/grpc.LessSimple/BlockForMillis',
+        '/zpages.endpoints.LessSimple/BlockForMillis',
         request_serializer=simple__service__pb2.BlockForMillisRequest.SerializeToString,
         response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
         )
     self.DoNEmptyRequests = channel.unary_unary(
-        '/grpc.LessSimple/DoNEmptyRequests',
+        '/zpages.endpoints.LessSimple/DoNEmptyRequests',
         request_serializer=simple__service__pb2.DoNEmptyRequestsRequest.SerializeToString,
         response_deserializer=simple__service__pb2.DoNEmptyRequestsResponse.FromString,
         )
     self.DoNRequestsAndFailSome = channel.unary_unary(
-        '/grpc.LessSimple/DoNRequestsAndFailSome',
+        '/zpages.endpoints.LessSimple/DoNRequestsAndFailSome',
         request_serializer=simple__service__pb2.DoNEchoRequestsAndFailSomeRequest.SerializeToString,
         response_deserializer=simple__service__pb2.DoNEmptyRequestsResponse.FromString,
         )
@@ -144,5 +144,5 @@ def add_LessSimpleServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'grpc.LessSimple', rpc_method_handlers)
+      'zpages.endpoints.LessSimple', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

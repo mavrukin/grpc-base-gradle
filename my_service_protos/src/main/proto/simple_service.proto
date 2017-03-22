@@ -4,7 +4,7 @@ import "google/protobuf/empty.proto";
 
 option java_package = "my.service.proto";
 
-package grpc;
+package zpages.endpoints;
 
 message EchoRequest {
     string echo = 1;
@@ -22,9 +22,9 @@ message FailWithProbabilityOrSucceedEchoRequest {
 
 service Simple {
     rpc Noop(google.protobuf.Empty) returns (google.protobuf.Empty) {}
-    rpc Echo(grpc.EchoRequest) returns (grpc.EchoResponse) {}
-    rpc FailPlease(grpc.FailWithProbabilityOrSucceedEchoRequest) returns
-    (grpc.EchoResponse) {}
+    rpc Echo(zpages.endpoints.EchoRequest) returns (zpages.endpoints.EchoResponse) {}
+    rpc FailPlease(zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest) returns
+    (zpages.endpoints.EchoResponse) {}
 }
 
 message BlockForMillisRequest {
@@ -50,9 +50,9 @@ message DoNEchoRequestsAndFailSomeRequest {
 }
 
 service LessSimple {
-    rpc BlockForMillis(grpc.BlockForMillisRequest) returns (google.protobuf.Empty) {}
-    rpc DoNEmptyRequests(grpc.DoNEmptyRequestsRequest) returns
-    (grpc.DoNEmptyRequestsResponse) {}
-    rpc DoNRequestsAndFailSome(grpc.DoNEchoRequestsAndFailSomeRequest) returns
-    (grpc.DoNEmptyRequestsResponse) {}
+    rpc BlockForMillis(zpages.endpoints.BlockForMillisRequest) returns (google.protobuf.Empty) {}
+    rpc DoNEmptyRequests(zpages.endpoints.DoNEmptyRequestsRequest) returns
+    (zpages.endpoints.DoNEmptyRequestsResponse) {}
+    rpc DoNRequestsAndFailSome(zpages.endpoints.DoNEchoRequestsAndFailSomeRequest) returns
+    (zpages.endpoints.DoNEmptyRequestsResponse) {}
 }

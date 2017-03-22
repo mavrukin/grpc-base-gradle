@@ -18,9 +18,9 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='simple_service.proto',
-  package='grpc',
+  package='zpages.endpoints',
   syntax='proto3',
-  serialized_pb=_b('\n\x14simple_service.proto\x12\x04grpc\x1a\x1bgoogle/protobuf/empty.proto\"0\n\x0b\x45\x63hoRequest\x12\x0c\n\x04\x65\x63ho\x18\x01 \x01(\t\x12\x13\n\x0brepeat_echo\x18\x02 \x01(\x05\"%\n\x0c\x45\x63hoResponse\x12\x15\n\recho_response\x18\x01 \x01(\t\"l\n\'FailWithProbabilityOrSucceedEchoRequest\x12\'\n\x0c\x65\x63ho_request\x18\x01 \x01(\x0b\x32\x11.grpc.EchoRequest\x12\x18\n\x10\x66\x61il_probability\x18\x02 \x01(\x05\"\'\n\x15\x42lockForMillisRequest\x12\x0e\n\x06millis\x18\x01 \x01(\x05\"E\n\x17\x44oNEmptyRequestsRequest\x12\x19\n\x11num_empty_request\x18\x01 \x01(\x05\x12\x0f\n\x07p_level\x18\x02 \x01(\x05\"\x85\x01\n\x18\x44oNEmptyRequestsResponse\x12\x1a\n\x12total_process_time\x18\x01 \x01(\x03\x12\x1b\n\x13successful_requests\x18\x02 \x01(\x05\x12\x17\n\x0f\x66\x61iled_requests\x18\x03 \x01(\x05\x12\x17\n\x0flongest_request\x18\x04 \x01(\x03\"\xdd\x01\n!DoNEchoRequestsAndFailSomeRequest\x12\x35\n\x0e\x65mpty_requests\x18\x01 \x01(\x0b\x32\x1d.grpc.DoNEmptyRequestsRequest\x12\x35\n\x10\x62lock_for_millis\x18\x02 \x01(\x0b\x32\x1b.grpc.BlockForMillisRequest\x12J\n\x13\x65\x63ho_with_p_failure\x18\x03 \x01(\x0b\x32-.grpc.FailWithProbabilityOrSucceedEchoRequest2\xc6\x01\n\x06Simple\x12\x38\n\x04Noop\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12/\n\x04\x45\x63ho\x12\x11.grpc.EchoRequest\x1a\x12.grpc.EchoResponse\"\x00\x12Q\n\nFailPlease\x12-.grpc.FailWithProbabilityOrSucceedEchoRequest\x1a\x12.grpc.EchoResponse\"\x00\x32\x8f\x02\n\nLessSimple\x12G\n\x0e\x42lockForMillis\x12\x1b.grpc.BlockForMillisRequest\x1a\x16.google.protobuf.Empty\"\x00\x12S\n\x10\x44oNEmptyRequests\x12\x1d.grpc.DoNEmptyRequestsRequest\x1a\x1e.grpc.DoNEmptyRequestsResponse\"\x00\x12\x63\n\x16\x44oNRequestsAndFailSome\x12\'.grpc.DoNEchoRequestsAndFailSomeRequest\x1a\x1e.grpc.DoNEmptyRequestsResponse\"\x00\x42\x12\n\x10my.service.protob\x06proto3')
+  serialized_pb=_b('\n\x14simple_service.proto\x12\x10zpages.endpoints\x1a\x1bgoogle/protobuf/empty.proto\"0\n\x0b\x45\x63hoRequest\x12\x0c\n\x04\x65\x63ho\x18\x01 \x01(\t\x12\x13\n\x0brepeat_echo\x18\x02 \x01(\x05\"%\n\x0c\x45\x63hoResponse\x12\x15\n\recho_response\x18\x01 \x01(\t\"x\n\'FailWithProbabilityOrSucceedEchoRequest\x12\x33\n\x0c\x65\x63ho_request\x18\x01 \x01(\x0b\x32\x1d.zpages.endpoints.EchoRequest\x12\x18\n\x10\x66\x61il_probability\x18\x02 \x01(\x05\"\'\n\x15\x42lockForMillisRequest\x12\x0e\n\x06millis\x18\x01 \x01(\x05\"E\n\x17\x44oNEmptyRequestsRequest\x12\x19\n\x11num_empty_request\x18\x01 \x01(\x05\x12\x0f\n\x07p_level\x18\x02 \x01(\x05\"\x85\x01\n\x18\x44oNEmptyRequestsResponse\x12\x1a\n\x12total_process_time\x18\x01 \x01(\x03\x12\x1b\n\x13successful_requests\x18\x02 \x01(\x05\x12\x17\n\x0f\x66\x61iled_requests\x18\x03 \x01(\x05\x12\x17\n\x0flongest_request\x18\x04 \x01(\x03\"\x81\x02\n!DoNEchoRequestsAndFailSomeRequest\x12\x41\n\x0e\x65mpty_requests\x18\x01 \x01(\x0b\x32).zpages.endpoints.DoNEmptyRequestsRequest\x12\x41\n\x10\x62lock_for_millis\x18\x02 \x01(\x0b\x32\'.zpages.endpoints.BlockForMillisRequest\x12V\n\x13\x65\x63ho_with_p_failure\x18\x03 \x01(\x0b\x32\x39.zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest2\xf6\x01\n\x06Simple\x12\x38\n\x04Noop\x12\x16.google.protobuf.Empty\x1a\x16.google.protobuf.Empty\"\x00\x12G\n\x04\x45\x63ho\x12\x1d.zpages.endpoints.EchoRequest\x1a\x1e.zpages.endpoints.EchoResponse\"\x00\x12i\n\nFailPlease\x12\x39.zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest\x1a\x1e.zpages.endpoints.EchoResponse\"\x00\x32\xcb\x02\n\nLessSimple\x12S\n\x0e\x42lockForMillis\x12\'.zpages.endpoints.BlockForMillisRequest\x1a\x16.google.protobuf.Empty\"\x00\x12k\n\x10\x44oNEmptyRequests\x12).zpages.endpoints.DoNEmptyRequestsRequest\x1a*.zpages.endpoints.DoNEmptyRequestsResponse\"\x00\x12{\n\x16\x44oNRequestsAndFailSome\x12\x33.zpages.endpoints.DoNEchoRequestsAndFailSomeRequest\x1a*.zpages.endpoints.DoNEmptyRequestsResponse\"\x00\x42\x12\n\x10my.service.protob\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_empty__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -30,20 +30,20 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _ECHOREQUEST = _descriptor.Descriptor(
   name='EchoRequest',
-  full_name='grpc.EchoRequest',
+  full_name='zpages.endpoints.EchoRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='echo', full_name='grpc.EchoRequest.echo', index=0,
+      name='echo', full_name='zpages.endpoints.EchoRequest.echo', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='repeat_echo', full_name='grpc.EchoRequest.repeat_echo', index=1,
+      name='repeat_echo', full_name='zpages.endpoints.EchoRequest.repeat_echo', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -61,20 +61,20 @@ _ECHOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=59,
-  serialized_end=107,
+  serialized_start=71,
+  serialized_end=119,
 )
 
 
 _ECHORESPONSE = _descriptor.Descriptor(
   name='EchoResponse',
-  full_name='grpc.EchoResponse',
+  full_name='zpages.endpoints.EchoResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='echo_response', full_name='grpc.EchoResponse.echo_response', index=0,
+      name='echo_response', full_name='zpages.endpoints.EchoResponse.echo_response', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -92,27 +92,27 @@ _ECHORESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=109,
-  serialized_end=146,
+  serialized_start=121,
+  serialized_end=158,
 )
 
 
 _FAILWITHPROBABILITYORSUCCEEDECHOREQUEST = _descriptor.Descriptor(
   name='FailWithProbabilityOrSucceedEchoRequest',
-  full_name='grpc.FailWithProbabilityOrSucceedEchoRequest',
+  full_name='zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='echo_request', full_name='grpc.FailWithProbabilityOrSucceedEchoRequest.echo_request', index=0,
+      name='echo_request', full_name='zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest.echo_request', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='fail_probability', full_name='grpc.FailWithProbabilityOrSucceedEchoRequest.fail_probability', index=1,
+      name='fail_probability', full_name='zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest.fail_probability', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -130,20 +130,20 @@ _FAILWITHPROBABILITYORSUCCEEDECHOREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=148,
-  serialized_end=256,
+  serialized_start=160,
+  serialized_end=280,
 )
 
 
 _BLOCKFORMILLISREQUEST = _descriptor.Descriptor(
   name='BlockForMillisRequest',
-  full_name='grpc.BlockForMillisRequest',
+  full_name='zpages.endpoints.BlockForMillisRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='millis', full_name='grpc.BlockForMillisRequest.millis', index=0,
+      name='millis', full_name='zpages.endpoints.BlockForMillisRequest.millis', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -161,27 +161,27 @@ _BLOCKFORMILLISREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=258,
-  serialized_end=297,
+  serialized_start=282,
+  serialized_end=321,
 )
 
 
 _DONEMPTYREQUESTSREQUEST = _descriptor.Descriptor(
   name='DoNEmptyRequestsRequest',
-  full_name='grpc.DoNEmptyRequestsRequest',
+  full_name='zpages.endpoints.DoNEmptyRequestsRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='num_empty_request', full_name='grpc.DoNEmptyRequestsRequest.num_empty_request', index=0,
+      name='num_empty_request', full_name='zpages.endpoints.DoNEmptyRequestsRequest.num_empty_request', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='p_level', full_name='grpc.DoNEmptyRequestsRequest.p_level', index=1,
+      name='p_level', full_name='zpages.endpoints.DoNEmptyRequestsRequest.p_level', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -199,41 +199,41 @@ _DONEMPTYREQUESTSREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=299,
-  serialized_end=368,
+  serialized_start=323,
+  serialized_end=392,
 )
 
 
 _DONEMPTYREQUESTSRESPONSE = _descriptor.Descriptor(
   name='DoNEmptyRequestsResponse',
-  full_name='grpc.DoNEmptyRequestsResponse',
+  full_name='zpages.endpoints.DoNEmptyRequestsResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='total_process_time', full_name='grpc.DoNEmptyRequestsResponse.total_process_time', index=0,
+      name='total_process_time', full_name='zpages.endpoints.DoNEmptyRequestsResponse.total_process_time', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='successful_requests', full_name='grpc.DoNEmptyRequestsResponse.successful_requests', index=1,
+      name='successful_requests', full_name='zpages.endpoints.DoNEmptyRequestsResponse.successful_requests', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='failed_requests', full_name='grpc.DoNEmptyRequestsResponse.failed_requests', index=2,
+      name='failed_requests', full_name='zpages.endpoints.DoNEmptyRequestsResponse.failed_requests', index=2,
       number=3, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='longest_request', full_name='grpc.DoNEmptyRequestsResponse.longest_request', index=3,
+      name='longest_request', full_name='zpages.endpoints.DoNEmptyRequestsResponse.longest_request', index=3,
       number=4, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -251,34 +251,34 @@ _DONEMPTYREQUESTSRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=371,
-  serialized_end=504,
+  serialized_start=395,
+  serialized_end=528,
 )
 
 
 _DONECHOREQUESTSANDFAILSOMEREQUEST = _descriptor.Descriptor(
   name='DoNEchoRequestsAndFailSomeRequest',
-  full_name='grpc.DoNEchoRequestsAndFailSomeRequest',
+  full_name='zpages.endpoints.DoNEchoRequestsAndFailSomeRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='empty_requests', full_name='grpc.DoNEchoRequestsAndFailSomeRequest.empty_requests', index=0,
+      name='empty_requests', full_name='zpages.endpoints.DoNEchoRequestsAndFailSomeRequest.empty_requests', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='block_for_millis', full_name='grpc.DoNEchoRequestsAndFailSomeRequest.block_for_millis', index=1,
+      name='block_for_millis', full_name='zpages.endpoints.DoNEchoRequestsAndFailSomeRequest.block_for_millis', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='echo_with_p_failure', full_name='grpc.DoNEchoRequestsAndFailSomeRequest.echo_with_p_failure', index=2,
+      name='echo_with_p_failure', full_name='zpages.endpoints.DoNEchoRequestsAndFailSomeRequest.echo_with_p_failure', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -296,8 +296,8 @@ _DONECHOREQUESTSANDFAILSOMEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=507,
-  serialized_end=728,
+  serialized_start=531,
+  serialized_end=788,
 )
 
 _FAILWITHPROBABILITYORSUCCEEDECHOREQUEST.fields_by_name['echo_request'].message_type = _ECHOREQUEST
@@ -315,49 +315,49 @@ DESCRIPTOR.message_types_by_name['DoNEchoRequestsAndFailSomeRequest'] = _DONECHO
 EchoRequest = _reflection.GeneratedProtocolMessageType('EchoRequest', (_message.Message,), dict(
   DESCRIPTOR = _ECHOREQUEST,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.EchoRequest)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.EchoRequest)
   ))
 _sym_db.RegisterMessage(EchoRequest)
 
 EchoResponse = _reflection.GeneratedProtocolMessageType('EchoResponse', (_message.Message,), dict(
   DESCRIPTOR = _ECHORESPONSE,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.EchoResponse)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.EchoResponse)
   ))
 _sym_db.RegisterMessage(EchoResponse)
 
 FailWithProbabilityOrSucceedEchoRequest = _reflection.GeneratedProtocolMessageType('FailWithProbabilityOrSucceedEchoRequest', (_message.Message,), dict(
   DESCRIPTOR = _FAILWITHPROBABILITYORSUCCEEDECHOREQUEST,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.FailWithProbabilityOrSucceedEchoRequest)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.FailWithProbabilityOrSucceedEchoRequest)
   ))
 _sym_db.RegisterMessage(FailWithProbabilityOrSucceedEchoRequest)
 
 BlockForMillisRequest = _reflection.GeneratedProtocolMessageType('BlockForMillisRequest', (_message.Message,), dict(
   DESCRIPTOR = _BLOCKFORMILLISREQUEST,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.BlockForMillisRequest)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.BlockForMillisRequest)
   ))
 _sym_db.RegisterMessage(BlockForMillisRequest)
 
 DoNEmptyRequestsRequest = _reflection.GeneratedProtocolMessageType('DoNEmptyRequestsRequest', (_message.Message,), dict(
   DESCRIPTOR = _DONEMPTYREQUESTSREQUEST,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.DoNEmptyRequestsRequest)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.DoNEmptyRequestsRequest)
   ))
 _sym_db.RegisterMessage(DoNEmptyRequestsRequest)
 
 DoNEmptyRequestsResponse = _reflection.GeneratedProtocolMessageType('DoNEmptyRequestsResponse', (_message.Message,), dict(
   DESCRIPTOR = _DONEMPTYREQUESTSRESPONSE,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.DoNEmptyRequestsResponse)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.DoNEmptyRequestsResponse)
   ))
 _sym_db.RegisterMessage(DoNEmptyRequestsResponse)
 
 DoNEchoRequestsAndFailSomeRequest = _reflection.GeneratedProtocolMessageType('DoNEchoRequestsAndFailSomeRequest', (_message.Message,), dict(
   DESCRIPTOR = _DONECHOREQUESTSANDFAILSOMEREQUEST,
   __module__ = 'simple_service_pb2'
-  # @@protoc_insertion_point(class_scope:grpc.DoNEchoRequestsAndFailSomeRequest)
+  # @@protoc_insertion_point(class_scope:zpages.endpoints.DoNEchoRequestsAndFailSomeRequest)
   ))
 _sym_db.RegisterMessage(DoNEchoRequestsAndFailSomeRequest)
 
@@ -383,17 +383,17 @@ try:
         channel: A grpc.Channel.
       """
       self.Noop = channel.unary_unary(
-          '/grpc.Simple/Noop',
+          '/zpages.endpoints.Simple/Noop',
           request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
           response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
           )
       self.Echo = channel.unary_unary(
-          '/grpc.Simple/Echo',
+          '/zpages.endpoints.Simple/Echo',
           request_serializer=EchoRequest.SerializeToString,
           response_deserializer=EchoResponse.FromString,
           )
       self.FailPlease = channel.unary_unary(
-          '/grpc.Simple/FailPlease',
+          '/zpages.endpoints.Simple/FailPlease',
           request_serializer=FailWithProbabilityOrSucceedEchoRequest.SerializeToString,
           response_deserializer=EchoResponse.FromString,
           )
@@ -436,7 +436,7 @@ try:
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'grpc.Simple', rpc_method_handlers)
+        'zpages.endpoints.Simple', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -449,17 +449,17 @@ try:
         channel: A grpc.Channel.
       """
       self.BlockForMillis = channel.unary_unary(
-          '/grpc.LessSimple/BlockForMillis',
+          '/zpages.endpoints.LessSimple/BlockForMillis',
           request_serializer=BlockForMillisRequest.SerializeToString,
           response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
           )
       self.DoNEmptyRequests = channel.unary_unary(
-          '/grpc.LessSimple/DoNEmptyRequests',
+          '/zpages.endpoints.LessSimple/DoNEmptyRequests',
           request_serializer=DoNEmptyRequestsRequest.SerializeToString,
           response_deserializer=DoNEmptyRequestsResponse.FromString,
           )
       self.DoNRequestsAndFailSome = channel.unary_unary(
-          '/grpc.LessSimple/DoNRequestsAndFailSome',
+          '/zpages.endpoints.LessSimple/DoNRequestsAndFailSome',
           request_serializer=DoNEchoRequestsAndFailSomeRequest.SerializeToString,
           response_deserializer=DoNEmptyRequestsResponse.FromString,
           )
@@ -502,7 +502,7 @@ try:
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        'grpc.LessSimple', rpc_method_handlers)
+        'zpages.endpoints.LessSimple', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -544,19 +544,19 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('grpc.Simple', 'Echo'): EchoRequest.FromString,
-      ('grpc.Simple', 'FailPlease'): FailWithProbabilityOrSucceedEchoRequest.FromString,
-      ('grpc.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+      ('zpages.endpoints.Simple', 'Echo'): EchoRequest.FromString,
+      ('zpages.endpoints.Simple', 'FailPlease'): FailWithProbabilityOrSucceedEchoRequest.FromString,
+      ('zpages.endpoints.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.FromString,
     }
     response_serializers = {
-      ('grpc.Simple', 'Echo'): EchoResponse.SerializeToString,
-      ('grpc.Simple', 'FailPlease'): EchoResponse.SerializeToString,
-      ('grpc.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+      ('zpages.endpoints.Simple', 'Echo'): EchoResponse.SerializeToString,
+      ('zpages.endpoints.Simple', 'FailPlease'): EchoResponse.SerializeToString,
+      ('zpages.endpoints.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
     }
     method_implementations = {
-      ('grpc.Simple', 'Echo'): face_utilities.unary_unary_inline(servicer.Echo),
-      ('grpc.Simple', 'FailPlease'): face_utilities.unary_unary_inline(servicer.FailPlease),
-      ('grpc.Simple', 'Noop'): face_utilities.unary_unary_inline(servicer.Noop),
+      ('zpages.endpoints.Simple', 'Echo'): face_utilities.unary_unary_inline(servicer.Echo),
+      ('zpages.endpoints.Simple', 'FailPlease'): face_utilities.unary_unary_inline(servicer.FailPlease),
+      ('zpages.endpoints.Simple', 'Noop'): face_utilities.unary_unary_inline(servicer.Noop),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -569,14 +569,14 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('grpc.Simple', 'Echo'): EchoRequest.SerializeToString,
-      ('grpc.Simple', 'FailPlease'): FailWithProbabilityOrSucceedEchoRequest.SerializeToString,
-      ('grpc.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+      ('zpages.endpoints.Simple', 'Echo'): EchoRequest.SerializeToString,
+      ('zpages.endpoints.Simple', 'FailPlease'): FailWithProbabilityOrSucceedEchoRequest.SerializeToString,
+      ('zpages.endpoints.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
     }
     response_deserializers = {
-      ('grpc.Simple', 'Echo'): EchoResponse.FromString,
-      ('grpc.Simple', 'FailPlease'): EchoResponse.FromString,
-      ('grpc.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+      ('zpages.endpoints.Simple', 'Echo'): EchoResponse.FromString,
+      ('zpages.endpoints.Simple', 'FailPlease'): EchoResponse.FromString,
+      ('zpages.endpoints.Simple', 'Noop'): google_dot_protobuf_dot_empty__pb2.Empty.FromString,
     }
     cardinalities = {
       'Echo': cardinality.Cardinality.UNARY_UNARY,
@@ -584,7 +584,7 @@ try:
       'Noop': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'grpc.Simple', cardinalities, options=stub_options)
+    return beta_implementations.dynamic_stub(channel, 'zpages.endpoints.Simple', cardinalities, options=stub_options)
 
 
   class BetaLessSimpleServicer(object):
@@ -625,19 +625,19 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('grpc.LessSimple', 'BlockForMillis'): BlockForMillisRequest.FromString,
-      ('grpc.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsRequest.FromString,
-      ('grpc.LessSimple', 'DoNRequestsAndFailSome'): DoNEchoRequestsAndFailSomeRequest.FromString,
+      ('zpages.endpoints.LessSimple', 'BlockForMillis'): BlockForMillisRequest.FromString,
+      ('zpages.endpoints.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsRequest.FromString,
+      ('zpages.endpoints.LessSimple', 'DoNRequestsAndFailSome'): DoNEchoRequestsAndFailSomeRequest.FromString,
     }
     response_serializers = {
-      ('grpc.LessSimple', 'BlockForMillis'): google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-      ('grpc.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsResponse.SerializeToString,
-      ('grpc.LessSimple', 'DoNRequestsAndFailSome'): DoNEmptyRequestsResponse.SerializeToString,
+      ('zpages.endpoints.LessSimple', 'BlockForMillis'): google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+      ('zpages.endpoints.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsResponse.SerializeToString,
+      ('zpages.endpoints.LessSimple', 'DoNRequestsAndFailSome'): DoNEmptyRequestsResponse.SerializeToString,
     }
     method_implementations = {
-      ('grpc.LessSimple', 'BlockForMillis'): face_utilities.unary_unary_inline(servicer.BlockForMillis),
-      ('grpc.LessSimple', 'DoNEmptyRequests'): face_utilities.unary_unary_inline(servicer.DoNEmptyRequests),
-      ('grpc.LessSimple', 'DoNRequestsAndFailSome'): face_utilities.unary_unary_inline(servicer.DoNRequestsAndFailSome),
+      ('zpages.endpoints.LessSimple', 'BlockForMillis'): face_utilities.unary_unary_inline(servicer.BlockForMillis),
+      ('zpages.endpoints.LessSimple', 'DoNEmptyRequests'): face_utilities.unary_unary_inline(servicer.DoNEmptyRequests),
+      ('zpages.endpoints.LessSimple', 'DoNRequestsAndFailSome'): face_utilities.unary_unary_inline(servicer.DoNRequestsAndFailSome),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
     return beta_implementations.server(method_implementations, options=server_options)
@@ -650,14 +650,14 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('grpc.LessSimple', 'BlockForMillis'): BlockForMillisRequest.SerializeToString,
-      ('grpc.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsRequest.SerializeToString,
-      ('grpc.LessSimple', 'DoNRequestsAndFailSome'): DoNEchoRequestsAndFailSomeRequest.SerializeToString,
+      ('zpages.endpoints.LessSimple', 'BlockForMillis'): BlockForMillisRequest.SerializeToString,
+      ('zpages.endpoints.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsRequest.SerializeToString,
+      ('zpages.endpoints.LessSimple', 'DoNRequestsAndFailSome'): DoNEchoRequestsAndFailSomeRequest.SerializeToString,
     }
     response_deserializers = {
-      ('grpc.LessSimple', 'BlockForMillis'): google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-      ('grpc.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsResponse.FromString,
-      ('grpc.LessSimple', 'DoNRequestsAndFailSome'): DoNEmptyRequestsResponse.FromString,
+      ('zpages.endpoints.LessSimple', 'BlockForMillis'): google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+      ('zpages.endpoints.LessSimple', 'DoNEmptyRequests'): DoNEmptyRequestsResponse.FromString,
+      ('zpages.endpoints.LessSimple', 'DoNRequestsAndFailSome'): DoNEmptyRequestsResponse.FromString,
     }
     cardinalities = {
       'BlockForMillis': cardinality.Cardinality.UNARY_UNARY,
@@ -665,7 +665,7 @@ try:
       'DoNRequestsAndFailSome': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-    return beta_implementations.dynamic_stub(channel, 'grpc.LessSimple', cardinalities, options=stub_options)
+    return beta_implementations.dynamic_stub(channel, 'zpages.endpoints.LessSimple', cardinalities, options=stub_options)
 except ImportError:
   pass
 # @@protoc_insertion_point(module_scope)

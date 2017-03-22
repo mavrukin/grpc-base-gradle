@@ -43,4 +43,4 @@ bin
 **/src/generated
 
 # Bytecode python files
-.pyc
+*.pyc
